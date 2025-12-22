@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REBELZION | Distribusi Alat Musik</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#03005d;
+    --secondary:#0074D9;
+    --glass:rgba(255,255,255,0.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(180deg,#000,#020024);
+    color:#fff;
+    line-height:1.8;
+    overflow-x:hidden;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+    position:fixed;
+    top:0;left:0;
+    width:100%;
+    padding:15px 0;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(12px);
+    z-index:1000;
+    text-align:center;
+}
+nav a{
+    color:#fff;
+    margin:0 18px;
+    text-decoration:none;
+    font-weight:600;
+    position:relative;
+}
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    background:var(--primary);
+    left:0;
+    bottom:-5px;
+    transition:.3s;
+}
+nav a:hover::after{width:100%}
+
+/* ===== HERO ===== */
+header{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    url('https://www.shutterstock.com/image-vector/futuristic-radial-burst-energy-cosmic-260nw-2582721247.jpg')
+    center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0 10%;
+}
+header img{width:150px}
+header h1{
+    font-size:4.8rem;
+    letter-spacing:5px;
+}
+header p{
+    font-size:1.4rem;
+    max-width:750px;
+    margin:20px auto;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--primary);
+    padding:15px 50px;
+    border-radius:50px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.4s;
+}
+.btn:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* ===== SECTION ===== */
+section{
+    padding:120px 10%;
+    text-align:center;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+section.show{
+    opacity:1;
+    transform:none;
+}
+
+h2{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+h2::after{
+    content:'';
+    width:90px;
+    height:5px;
+    background:var(--secondary);
+    display:block;
+    margin:20px auto;
+    border-radius:10px;
+}
+
+.profile{background:#0b0b0b}
+
+.visi-misi{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.box{
+    background:var(--glass);
+    backdrop-filter:blur(10px);
+    border-radius:18px;
+    padding:30px;
+    transition:.4s;
+}
+.box:hover{
+    transform:translateY(-12px) scale(1.02);
+}
+
+/* ===== PRODUK ===== */
+.products{background:#0b0b0b}
+
+.product-category{
+    margin-top:60px;
+}
+
+.product-category h3{
+    font-size:2rem;
+    margin-bottom:25px;
+    color: #fd9800;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.product-card{
+    background:var(--glass);
+    backdrop-filter:blur(10px);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.4s;
+}
+.product-card:hover{
+    transform:translateY(-12px) scale(1.03);
+}
+
+.product-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.product-card h4{
+    margin:18px 20px 5px;
+}
+.product-card p{
+    margin:0 20px 20px;
+    font-size:.95rem;
+}
+
+/* ===== CONTACT ===== */
+#contact{
+    background:linear-gradient(135deg,#001f3f,#fd9800);
+}
+
+footer{
+    background:#02008d;
+    padding:30px;
+    text-align:center;
+    font-size:.9rem;
+}
+
+@media(max-width:768px){
+    header h1{font-size:3.2rem}
+    h2{font-size:2.3rem}
+    nav a{margin:0 10px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">Profil</a>
+    <a href="#logo">Makna Logo</a>
+    <a href="#vision">Visi & Misi</a>
+    <a href="#products">Produk</a>
+    <a href="#contact">Kontak</a>
+</nav>
+
+<header id="home">
+    <div>
+        <img src="assets/img/logorzz.png" alt="Logo REBELZION">
+        <h1>REBELZION</h1>
+        <p>Distribusi Alat Musik Modern & Tradisional Maluku Utara</p>
+        <a href="#about" class="btn">Profil Perusahaan</a>
+    </div>
+</header>
+
+<section id="about" class="profile">
+    <h2>Profil Perusahaan</h2>
+    <p>
+        PT Rebelzion merupakan perusahaan distribusi alat musik yang mengedepankan
+        kebebasan berekspresi, profesionalisme, serta pelestarian budaya lokal Indonesia.
+    </p>
+</section>
+
+<section id="logo">
+    <h2>Makna Logo</h2>
+    <img src="logo/logoRZZ.png" style="width:260px;margin:30px 0;border-radius:15px">
+    <div class="visi-misi">
+        <div class="box">
+            <h3>REBELION</h3>
+            <p>Kebebasan berekspresi dan identitas kuat dalam berkarya.</p>
+        </div>
+        <div class="box">
+            <h3>ZION</h3>
+            <p>Identitas, spiritualitas, dan kekuatan dalam perjalanan musik.</p>
+        </div>
+    </div>
+</section>
+
+<section class="profile">
+    <h2>Makna Garis Logo</h2>
+    <div class="visi-misi">
+        <div class="box"><p>Fondasi kreativitas melalui staf musik.</p></div>
+        <div class="box"><p>Harmoni antara identitas dan musik.</p></div>
+        <div class="box"><p>Clef sebagai inti dan pengikat R & Z.</p></div>
+    </div>
+</section>
+
+<section id="vision">
+    <h2>Visi & Misi</h2>
+    <div class="visi-misi">
+        <div class="box">
+            <h3>Visi</h3>
+            <p>Menjadi pusat distribusi musik terpercaya menuju pasar global.</p>
+        </div>
+        <div class="box">
+            <h3>Misi</h3>
+            <p>Mendukung musisi, distribusi modern, lisensi legal, dan ekosistem profesional.</p>
+        </div>
+    </div>
+</section>
+
+<section id="products" class="products">
+    <h2>Produk</h2>
+
+    <div class="product-category">
+        <h3>Alat Musik Modern</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://guitarbomb.com/wp-content/uploads/2024/02/Gibson-Les-Paul-Modern-Studio-is-under-2k-but-is-it-worth-it-e1707325990460.jpg">
+                <h4>Gitar Elektrik</h4>
+                <p>Untuk performa dan produksi modern.</p>
+            </div>
+            <div class="product-card">
+                <img src="https://www.fullcompass.com/common/products/original/476374.jpg">
+                <h4>Drum Elektrik</h4>
+                <p>Solusi studio dan live performance.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-category">
+        <h3>Alat Musik Tradisional Maluku Utara</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="assets/img/tifa.png">
+                <h4>Tifa</h4>
+                <p>Alat musik pukul tradisional.</p>
+            </div>
+            <div class="product-card">
+                <img src="assets/img/seruling.png">
+                <h4>Seruling Bambu</h4>
+                <p>Alat musik tiup tradisional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontak</h2>
+    <p>Email: informatika@rebelzion.id</p>
+    <p>Instagram: @REBELZION_RZ</p>
+    <p>Ternate Selatan, Kel. Sasa</p>
+</section>
+
+<footer>
+    <p> ©2025Abubakar ismail/ @PT REBELZION Indonesia di lindungi</p>
+</footer>
+
+<script>
+const sections=document.querySelectorAll("section");
+const reveal=()=>sections.forEach(s=>{
+    if(s.getBoundingClientRect().top<window.innerHeight-120){
+        s.classList.add("show");
+    }
+});
+window.addEventListener("scroll",reveal);
+reveal();
+</script>
+
+</body>
+</html>
