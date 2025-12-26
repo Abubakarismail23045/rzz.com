@@ -12,6 +12,10 @@
     --primary:#03005d;
     --secondary:#0074D9;
     --glass:rgba(255,255,255,0.06);
+    --success: #25D366;
+    --danger: #ff4d4d;
+    --shopee-orange: #ee4d2d;
+    --footer-blue: #001f3f;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,185 +25,85 @@ body{
     background:linear-gradient(180deg,#000,#020024);
     color:#fff;
     line-height:1.8;
-    overflow-x:hidden;
 }
 
 /* ===== NAVBAR ===== */
-nav{
-    position:fixed;
-    top:0;left:0;
-    width:100%;
-    padding:15px 0;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(12px);
-    z-index:1000;
-    text-align:center;
-}
-nav a{
-    color:#fff;
-    margin:0 18px;
-    text-decoration:none;
-    font-weight:600;
-    position:relative;
-}
-nav a::after{
-    content:'';
-    position:absolute;
-    width:0;
-    height:2px;
-    background:var(--primary);
-    left:0;
-    bottom:-5px;
-    transition:.3s;
-}
-nav a:hover::after{width:100%}
+nav{ position:fixed; top:0; width:100%; padding:15px 0; background:rgba(0,0,0,.75); backdrop-filter:blur(12px); z-index:1000; text-align:center; }
+nav a{ color:#fff; margin:0 18px; text-decoration:none; font-weight:600; position:relative; }
+#cart-count { background: var(--shopee-orange); color: white; padding: 2px 8px; border-radius: 50%; font-size: 0.7rem; position: absolute; top: -10px; right: -15px; }
 
-/* ===== HERO ===== */
-header{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
-    url('https://www.shutterstock.com/image-vector/futuristic-radial-burst-energy-cosmic-260nw-2582721247.jpg')
-    center/cover no-repeat;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 10%;
-}
-header img{width:150px}
-header h1{
-    font-size:4.8rem;
-    letter-spacing:5px;
-}
-header p{
-    font-size:1.4rem;
-    max-width:750px;
-    margin:20px auto;
-}
+/* ===== HEADER ===== */
+header{ height:100vh; background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)), url('https://www.shutterstock.com/image-vector/futuristic-radial-burst-energy-cosmic-260nw-2582721247.jpg') center/cover no-repeat; display:flex; justify-content:center; align-items:center; text-align:center; padding:0 10%; }
+header h1{ font-size:4.8rem; letter-spacing:5px; }
 
-.btn{
-    display:inline-block;
-    background:var(--primary);
-    padding:15px 50px;
-    border-radius:50px;
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
-    transition:.4s;
-}
-.btn:hover{
-    background:#fff;
-    color:#000;
-}
+/* ===== SECTION UTAMA ===== */
+section{ padding:120px 10%; text-align:center; opacity:0; transform:translateY(40px); transition:1s ease; }
+section.show{ opacity:1; transform:none; }
 
-/* ===== SECTION ===== */
-section{
-    padding:120px 10%;
-    text-align:center;
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s ease;
-}
-section.show{
-    opacity:1;
-    transform:none;
-}
-
-h2{
-    font-size:3rem;
-    margin-bottom:25px;
-}
-h2::after{
-    content:'';
-    width:90px;
-    height:5px;
-    background:var(--secondary);
-    display:block;
-    margin:20px auto;
-    border-radius:10px;
-}
-
-.profile{background:#0b0b0b}
-
-.visi-misi{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-    margin-top:50px;
-}
-
-.box{
-    background:var(--glass);
-    backdrop-filter:blur(10px);
-    border-radius:18px;
-    padding:30px;
-    transition:.4s;
-}
-.box:hover{
-    transform:translateY(-12px) scale(1.02);
-}
+.box{ background:var(--glass); backdrop-filter:blur(10px); border-radius:18px; padding:30px; transition:.4s; text-align: left; }
+.visi-misi, .anggota-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:30px; }
 
 /* ===== PRODUK ===== */
-.products{background:#0b0b0b}
+.product-category{ margin-top:60px; }
+.product-category h3{ font-size:2rem; margin-bottom:25px; color: #fd9800; text-align: center; }
+.product-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
+.product-card{ background:var(--glass); backdrop-filter:blur(10px); border-radius:18px; overflow:hidden; transition:.4s; padding-bottom: 20px; text-align: center;}
+.product-card img{ width:100%; height:220px; object-fit:cover; }
+.product-card h4{ margin:18px 20px 5px; }
 
-.product-category{
-    margin-top:60px;
-}
+.btn-cek { background: #fd9800; padding: 8px 20px; border-radius: 20px; border: none; color: white; cursor: pointer; margin-bottom: 10px; }
 
-.product-category h3{
-    font-size:2rem;
-    margin-bottom:25px;
-    color: #fd9800;
+/* EFEK KLIK PADA TOMBOL BELI */
+.btn-beli { 
+    background: var(--shopee-orange); 
+    padding: 8px 20px; 
+    border-radius: 20px; 
+    border: none; 
+    color: white; 
+    cursor: pointer; 
+    font-weight: 700; 
+    transition: transform 0.1s ease; /* Transisi untuk efek halus */
 }
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:30px;
-}
-
-.product-card{
-    background:var(--glass);
-    backdrop-filter:blur(10px);
-    border-radius:18px;
-    overflow:hidden;
-    transition:.4s;
-}
-.product-card:hover{
-    transform:translateY(-12px) scale(1.03);
+.btn-beli:active {
+    transform: scale(0.9); /* Tombol mengecil saat diklik */
 }
 
-.product-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+.price-display { display: block; font-weight: 700; font-size: 1.2rem; color: #00ff88; max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s; }
+.price-display.active { max-height: 50px; opacity: 1; margin-top: 10px; }
+
+/* ===== KERANJANG ===== */
+.my-database { margin-top: 50px; padding: 30px; border: 1px dashed var(--secondary); border-radius: 15px; }
+.db-item { background:var(--glass); padding: 15px; border-radius: 10px; margin-bottom: 10px; text-align: left; position: relative; border-left: 4px solid var(--success);}
+.btn-del-item { position: absolute; right: 10px; top: 10px; background:none; border:none; color:var(--danger); cursor:pointer; font-size: 1.2rem;}
+
+/* ===== FOOTER ===== */
+footer { background: var(--footer-blue); color: white; padding: 40px 10%; text-align: center; border-top: 3px solid var(--secondary); }
+
+/* ===== MODAL & RECEIPT ===== */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+.modal-content { background: #1a1a1a; padding: 30px; border-radius: 15px; width: 95%; max-width: 450px; text-align: center; border: 1px solid var(--secondary); }
+.receipt { background: #fff; color: #000; padding: 30px; margin-top: 20px; border-radius: 5px; text-align: left; font-family: 'Courier New', Courier, monospace; display: none; }
+
+/* Gaya Centang Hijau di Struk */
+.success-check {
+    color: var(--success);
+    font-size: 3rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.success-text {
+    color: var(--success);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    display: block;
 }
 
-.product-card h4{
-    margin:18px 20px 5px;
-}
-.product-card p{
-    margin:0 20px 20px;
-    font-size:.95rem;
-}
-
-/* ===== CONTACT ===== */
-#contact{
-    background:linear-gradient(135deg,#001f3f,#fd9800);
-}
-
-footer{
-    background:#02008d;
-    padding:30px;
-    text-align:center;
-    font-size:.9rem;
-}
-
-@media(max-width:768px){
-    header h1{font-size:3.2rem}
-    h2{font-size:2.3rem}
-    nav a{margin:0 10px}
+@media print {
+    body * { visibility: hidden; }
+    #receiptBox, #receiptBox * { visibility: visible; }
+    #receiptBox { position: absolute; left: 0; top: 0; width: 100%; }
 }
 </style>
 </head>
@@ -208,124 +112,255 @@ footer{
 
 <nav>
     <a href="#home">Home</a>
-    <a href="#about">Profil</a>
+    <a href="#about">Tentang Kami</a>
     <a href="#logo">Makna Logo</a>
-    <a href="#vision">Visi & Misi</a>
-    <a href="#products">Produk</a>
+    <a href="#vision">Visi Misi</a>
+    <a href="#products">Produk <span id="cart-count">0</span></a>
     <a href="#contact">Kontak</a>
 </nav>
 
 <header id="home">
     <div>
-        <img src="assets/img/logorzz.png" alt="Logo REBELZION">
+        <img src="assets/img/logorzz.png" alt="Logo" style="width: 150px;">
         <h1>REBELZION</h1>
-        <p>Distribusi Alat Musik Modern & Tradisional Maluku Utara</p>
-        <a href="#about" class="btn">Profil Perusahaan</a>
+        <p>PERUSAHAN DISTRIBUSI ALAT-ALAT MUSIK </p>
     </div>
 </header>
 
-<section id="about" class="profile">
-    <h2>Profil Perusahaan</h2>
-    <p>
-        PT Rebelzion merupakan perusahaan distribusi alat musik yang mengedepankan
-        kebebasan berekspresi, profesionalisme, serta pelestarian budaya lokal Indonesia.
-    </p>
+<section id="about">
+    <h2>Tentang Kami</h2>
+    <div class="box">
+        <p>PT Rebelzion merupakan perusahaan yang bergerak di bidang distribusi alat musik dengan konsep yang mengedepankan kebebasan berekspresi dan profesionalisme dalam berkarya. Kami berkomitmen mendukung serta mengembangkan potensi musisi dan kreator musik di Indonesia.</p>
+    </div>
+    
+    <h3 style="margin-top: 40px; color: var(--secondary);">Anggota Kelompok</h3>
+    <div class="anggota-grid">
+        <div class="box" style="padding: 15px; text-align: center;">Abubakar Ismail</div>
+        <div class="box" style="padding: 15px; text-align: center;">Riyaldi Umawaitina</div>
+        <div class="box" style="padding: 15px; text-align: center;">Daeng Taba Umar</div>
+        <div class="box" style="padding: 15px; text-align: center;">Efan Umagapi</div>
+        <div class="box" style="padding: 15px; text-align: center;">Riyanti Umanailo</div>
+        <div class="box" style="padding: 15px; text-align: center;">Nurkholik Anugrah Putra</div>
+        <div class="box" style="padding: 15px; text-align: center;">Srinagita Irwan</div>
+        <div class="box" style="padding: 15px; text-align: center;">Rusmini Hairun</div>
+        <div class="box" style="padding: 15px; text-align: center;">Tiara Baura</div>
+        <div class="box" style="padding: 15px; text-align: center;">Mukadim</div>
+    </div>
 </section>
 
 <section id="logo">
     <h2>Makna Logo</h2>
-    <img src="logo/logoRZZ.png" style="width:260px;margin:30px 0;border-radius:15px">
-    <div class="visi-misi">
-        <div class="box">
-            <h3>REBELION</h3>
-            <p>Kebebasan berekspresi dan identitas kuat dalam berkarya.</p>
-        </div>
-        <div class="box">
-            <h3>ZION</h3>
-            <p>Identitas, spiritualitas, dan kekuatan dalam perjalanan musik.</p>
-        </div>
-    </div>
-</section>
+    <div class="box">
+        <center>
+            <img src="assets/img/logorzz.png" style="width:200px; margin-bottom:20px;" alt="Logo Rebelzion">
+        </center>
+        
+        <div style="margin-top:20px;">
+            <p><strong>1. Nama RZ (Rebelion & Zion)</strong></p>
+            <ul style="margin-left:20px; margin-bottom:15px; font-size: 0.95rem;">
+                <li><strong>Rebelion:</strong> Melambangkan kebebasan berekspresi yang mengutamakan originalitas dan identitas kuat.</li>
+                <li><strong>Zion:</strong> Melambangkan identitas kuat, spiritualitas, serta kedalaman makna dalam perjalanan hidup atau berkarya.</li>
+            </ul>
 
-<section class="profile">
-    <h2>Makna Garis Logo</h2>
-    <div class="visi-misi">
-        <div class="box"><p>Fondasi kreativitas melalui staf musik.</p></div>
-        <div class="box"><p>Harmoni antara identitas dan musik.</p></div>
-        <div class="box"><p>Clef sebagai inti dan pengikat R & Z.</p></div>
+            <p><strong>2. Garis Nada (Empat Garis Staf Musik)</strong></p>
+            <ul style="margin-left:20px; margin-bottom:15px; font-size: 0.95rem;">
+                <li><strong>Dasar Kreativitas:</strong> Menunjukkan fondasi yang kuat dalam industri musik.</li>
+                <li><strong>Keteraturan & Struktur:</strong> Melambangkan cara kerja yang profesional dan terarah.</li>
+                <li><strong>Konsistensi:</strong> Mencerminkan kestabilan dalam menciptakan karya yang tahan lama.</li>
+            </ul>
+
+            <p><strong>3. Clef (Kunci G)</strong></p>
+            <ul style="margin-left:20px; font-size: 0.95rem;">
+                <li><strong>Pusat Harmoni:</strong> Menunjukkan bahwa musik adalah inti utama dari perusahaan.</li>
+                <li><strong>Penghubung:</strong> Mengikat identitas menjadi satu kesatuan visi yang selaras.</li>
+            </ul>
+        </div>
     </div>
 </section>
 
 <section id="vision">
-    <h2>Visi & Misi</h2>
+    <h2>Visi & Misi </h2>
     <div class="visi-misi">
         <div class="box">
-            <h3>Visi</h3>
-            <p>Menjadi pusat distribusi musik terpercaya menuju pasar global.</p>
+            <h3>VISI</h3>
+            <p>“Menjadi pusat penjualan dan distribusi musik terpercaya yang mampu menghadirkan karya berkualitas kepada pasar global.”</p>
         </div>
         <div class="box">
-            <h3>Misi</h3>
-            <p>Mendukung musisi, distribusi modern, lisensi legal, dan ekosistem profesional.</p>
+            <h3>MISI</h3>
+            <ul style="margin-left:20px; font-size: 0.85rem; text-align: left;">
+                <li>Memfasilitasi Penjualan Musik Berkualitas</li>
+                <li>Mendukung Kreator dan Produser Musik</li>
+                <li>Mengembangkan Sistem Distribusi Modern</li>
+                <li>Menyediakan Layanan Lisensi Musik</li>
+                <li>Menciptakan Ekosistem Penjualan Profesional.</li>
+            </ul>
         </div>
     </div>
 </section>
 
-<section id="products" class="products">
-    <h2>Produk</h2>
-
+<section id="products">
+    <h2>Produk Kami</h2>
     <div class="product-category">
         <h3>Alat Musik Modern</h3>
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://guitarbomb.com/wp-content/uploads/2024/02/Gibson-Les-Paul-Modern-Studio-is-under-2k-but-is-it-worth-it-e1707325990460.jpg">
+                <img src="assets/img/gitarelektrik.jpg">
                 <h4>Gitar Elektrik</h4>
-                <p>Untuk performa dan produksi modern.</p>
+                <button class="btn-cek" onclick="togglePrice(this, 'Rp 1.500.000')">Cek Harga</button>
+                <span class="price-display"></span><br>
+                <button class="btn-beli" onclick="prosesBeli('Gitar Elektrik', 1500000)">Beli Sekarang</button>
             </div>
             <div class="product-card">
-                <img src="https://www.fullcompass.com/common/products/original/476374.jpg">
+                <img src="assets/img/gitar and drum.jpg">
                 <h4>Drum Elektrik</h4>
-                <p>Solusi studio dan live performance.</p>
+                <button class="btn-cek" onclick="togglePrice(this, 'Rp 2.200.000')">Cek Harga</button>
+                <span class="price-display"></span><br>
+                <button class="btn-beli" onclick="prosesBeli('Drum Elektrik', 2200000)">Beli Sekarang</button>
             </div>
         </div>
     </div>
 
     <div class="product-category">
-        <h3>Alat Musik Tradisional Maluku Utara</h3>
+        <h3>Alat Musik Tradisional</h3>
         <div class="product-grid">
             <div class="product-card">
                 <img src="assets/img/tifa.png">
                 <h4>Tifa</h4>
-                <p>Alat musik pukul tradisional.</p>
+                <button class="btn-cek" onclick="togglePrice(this, 'Rp 750.000')">Cek Harga</button>
+                <span class="price-display"></span><br>
+                <button class="btn-beli" onclick="prosesBeli('Tifa', 750000)">Beli Sekarang</button>
             </div>
             <div class="product-card">
                 <img src="assets/img/seruling.png">
-                <h4>Seruling Bambu</h4>
-                <p>Alat musik tiup tradisional.</p>
+                <h4>seruling</h4>
+                <button class="btn-cek" onclick="togglePrice(this, 'Rp 1.200.000')">Cek Harga</button>
+                <span class="price-display"></span><br>
+                <button class="btn-beli" onclick="prosesBeli('seruling', 1200000)">Beli Sekarang</button>
             </div>
+        </div>
+    </div>
+
+    <div class="my-database">
+        <h3>🛒 Keranjang Belanja</h3>
+        <div id="db-list" style="margin-top:20px;"></div>
+        <div id="total-section" style="display:none; margin-top:20px;">
+            <h3>Total: <span id="total-harga" style="color:var(--success)">0</span></h3>
+            <button class="btn-beli" style="background:var(--success); padding:10px 30px;" onclick="bukaPembayaran()">Bayar Sekarang</button>
         </div>
     </div>
 </section>
 
-<section id="contact">
-    <h2>Kontak</h2>
+<section id="contact" style="background: none; padding-bottom: 50px;">
     <p>Email: informatika@rebelzion.id</p>
     <p>Instagram: @REBELZION_RZ</p>
     <p>Ternate Selatan, Kel. Sasa</p>
 </section>
 
 <footer>
-    <p> ©2025Abubakar ismail/ @PT REBELZION Indonesia di lindungi</p>
+    <p>© 2025 Kelompok 7 TKTI - All Rights Reserved</p>
 </footer>
+
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <div id="paymentForm">
+            <h3>Konfirmasi</h3>
+            <p id="modalTotalText" style="margin:20px 0;"></p>
+            <button class="btn-beli" style="background:var(--success); width:100%" onclick="konfirmasiBayar()">BAYAR</button>
+            <button onclick="tutupModal()" style="background:none; border:none; color:white; margin-top:10px; cursor:pointer;">Batal</button>
+        </div>
+        
+        <div id="receiptBox" class="receipt">
+            <center>
+                <span class="success-check">✓</span>
+                <span class="success-text">Pembayaran Berhasil!</span>
+                <img src="assets/img/logorzz.png" style="width:50px">
+                <h4>PT REBELZION</h4>
+            </center>
+            <hr style="border-top:1px dashed #000; margin:10px 0">
+            <div id="receiptItems"></div>
+            <hr style="border-top:1px dashed #000; margin:10px 0">
+            <h4 id="receiptTotal"></h4>
+            <br>
+            <center><p style="font-size: 0.8rem;">Terima kasih atas pembelian Anda!</p></center>
+            <button class="btn-beli" onclick="window.print()" style="width:100%; margin-top:10px; padding:10px; border-radius: 5px;">Print Struk</button>
+            <button onclick="tutupModal()" style="width:100%; margin-top:5px; padding:10px; background: #eee; border: none; cursor:pointer; border-radius: 5px;">Selesai</button>
+        </div>
+    </div>
+</div>
 
 <script>
 const sections=document.querySelectorAll("section");
 const reveal=()=>sections.forEach(s=>{
-    if(s.getBoundingClientRect().top<window.innerHeight-120){
-        s.classList.add("show");
-    }
+    if(s.getBoundingClientRect().top<window.innerHeight-100) s.classList.add("show");
 });
-window.addEventListener("scroll",reveal);
-reveal();
+window.addEventListener("scroll",reveal); reveal();
+
+function togglePrice(btn, price) {
+    const disp = btn.nextElementSibling;
+    if(disp.classList.contains('active')){
+        disp.classList.remove('active'); btn.innerText="Cek Harga";
+    } else {
+        disp.innerText=price; disp.classList.add('active'); btn.innerText="Tutup Harga";
+    }
+}
+
+function prosesBeli(nama, harga) {
+    let db = JSON.parse(localStorage.getItem('rebelzion_db')) || [];
+    db.push({ id: Date.now(), nama: nama, harga: harga });
+    localStorage.setItem('rebelzion_db', JSON.stringify(db));
+    tampilkanDatabase();
+}
+
+function tampilkanDatabase() {
+    const list = document.getElementById('db-list');
+    const badge = document.getElementById('cart-count');
+    const totalSec = document.getElementById('total-section');
+    let db = JSON.parse(localStorage.getItem('rebelzion_db')) || [];
+    badge.innerText = db.length;
+    if(db.length > 0){
+        totalSec.style.display='block';
+        let total = 0;
+        list.innerHTML = db.map(i => {
+            total += i.harga;
+            return `<div class="db-item">
+                <button class="btn-del-item" onclick="hapusSatu(${i.id})">×</button>
+                <h5>${i.nama}</h5><p>Rp ${i.harga.toLocaleString()}</p>
+            </div>`
+        }).join('');
+        document.getElementById('total-harga').innerText = "Rp " + total.toLocaleString();
+    } else {
+        totalSec.style.display='none'; list.innerHTML='<p style="opacity:0.5;">Belum ada item.</p>';
+    }
+}
+
+function hapusSatu(id) {
+    let db = JSON.parse(localStorage.getItem('rebelzion_db')) || [];
+    localStorage.setItem('rebelzion_db', JSON.stringify(db.filter(i => i.id !== id)));
+    tampilkanDatabase();
+}
+
+function bukaPembayaran() {
+    let db = JSON.parse(localStorage.getItem('rebelzion_db')) || [];
+    if(db.length === 0) return;
+    let total = db.reduce((a, b) => a + b.harga, 0);
+    document.getElementById('modalTotalText').innerText = "Total: Rp " + total.toLocaleString();
+    document.getElementById('paymentModal').style.display='flex';
+    document.getElementById('paymentForm').style.display='block';
+    document.getElementById('receiptBox').style.display='none';
+}
+
+function konfirmasiBayar() {
+    let db = JSON.parse(localStorage.getItem('rebelzion_db')) || [];
+    let total = db.reduce((a, b) => a + b.harga, 0);
+    document.getElementById('paymentForm').style.display='none';
+    document.getElementById('receiptBox').style.display='block';
+    document.getElementById('receiptItems').innerHTML = db.map(i => `<p>${i.nama} - Rp ${i.harga.toLocaleString()}</p>`).join('');
+    document.getElementById('receiptTotal').innerText = "TOTAL: Rp " + total.toLocaleString();
+    localStorage.removeItem('rebelzion_db'); tampilkanDatabase();
+}
+
+function tutupModal() { document.getElementById('paymentModal').style.display='none'; }
+document.addEventListener('DOMContentLoaded', tampilkanDatabase);
 </script>
 
 </body>
